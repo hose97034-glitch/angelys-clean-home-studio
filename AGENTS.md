@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- Store editable brand copy and service lists in one shared content module, and build reusable visual showcases as isolated UI components so business edits remain separate from layout details.
