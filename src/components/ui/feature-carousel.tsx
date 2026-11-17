@@ -40,7 +40,12 @@ export function FeatureCarousel() {
   const [active, setActive] = React.useState(0);
   const apiRef = React.useRef<Parameters<NonNullable<React.ComponentProps<typeof Carousel>["setApi"]>>[0] | null>(null);
 
-  const setApi = React.useCallback((api: NonNullable<typeof apiRef.current>) => {
+  const setApi = React.useCallback((api: NonNullable<typeof apiRef.current> | undefined) => {
+    if (!api) {
+      apiRef.current = null;
+      return;
+    }
+
     apiRef.current = api;
     const update = () => setActive(api.selectedScrollSnap());
     api.on("select", update);
